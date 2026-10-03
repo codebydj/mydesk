@@ -1,0 +1,86 @@
+export type Priority = "low" | "medium" | "high";
+export type TaskStatus = "open" | "completed" | "archived" | "trash";
+export type Task = {
+  id: string;
+  title: string;
+  description?: string;
+  priority: Priority;
+  dueDate?: string;
+  plannedDate?: string;
+  isPriority?: boolean;
+  projectId?: string;
+  subject?: string;
+  subjectId?: string;
+  sourceInboxId?: string;
+  tags: string[];
+  subtasks: { id: string; title: string; done: boolean }[];
+  status: TaskStatus;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt?: string;
+  previousStatus?: 'open' | 'completed';
+};
+export type Project = {
+  id: string;
+  name: string;
+  description?: string;
+  status: "Planned" | "Active" | "On Hold" | "Completed";
+  nextAction?: string;
+  github?: string;
+  website?: string;
+  createdAt: string;
+  updatedAt?: string;
+  archived?: boolean;
+  deletedAt?: string;
+};
+export type Note = {
+  id: string;
+  title: string;
+  body: string;
+  tags: string[];
+  pinned: boolean;
+  projectId?: string;
+  url?: string;
+  description?: string;
+  archived?: boolean;
+  deletedAt?: string;
+  createdAt: string;
+  updatedAt: string;
+};
+export type InboxItem = {
+  id: string;
+  content: string;
+  kind: "task" | "note" | "link" | "idea";
+  createdAt: string;
+  archived?: boolean;
+  deletedAt?: string;
+  convertedTaskId?: string;
+};
+export type Subject = {
+  id: string;
+  name: string;
+  color: string;
+  createdAt: string;
+  updatedAt?: string;
+  archived?: boolean;
+  deletedAt?: string;
+};
+export type FocusSession = {
+  id: string;
+  taskId?: string;
+  startedAt: string;
+  endedAt: string;
+  minutes: number;
+};
+export type Store = {
+  version: 4;
+  tasks: Task[];
+  projects: Project[];
+  notes: Note[];
+  inbox: InboxItem[];
+  subjects: Subject[];
+  focus: FocusSession[];
+  focusState?: { id?: string; taskId?: string; startedAt?: string; endsAt?: number; remaining?: number; duration?: number };
+  dailyPriorities: Record<string, string[]>;
+  settings: { theme: "light" | "dark"; privacy: boolean; name: string; taskFilter?: string };
+};

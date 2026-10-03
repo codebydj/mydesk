@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">MyDesk</string>
+    <string name="title_activity_main">MyDesk</string>
+    <string name="package_name">com.mydesk.workspace</string>
+    <string name="custom_url_scheme">com.mydesk.workspace</string>
+</resources>

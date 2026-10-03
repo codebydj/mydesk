@@ -1,0 +1,3 @@
+export const APP_VERSION = '1.0.1';
+export const DATABASE_SCHEMA_VERSION = 4;
+export const RELEASES = [{version:APP_VERSION,date:'2026-10-03',summary:'Version 1.0.1 candidate: local-first workspace with optional account access.',additions:['Login, sign-up, privacy/security screens and MyDesk logo','Separate account-local workspace keys and Android packaging configuration'],improvements:['Session-only authentication by default','Preserves original personal records and stable IDs'],fixes:[],limitations:['Cloud sync is unavailable.','Live account operations and Android execution are not yet verified.','Android build requires a configured JDK and Android SDK.']}];
